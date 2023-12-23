@@ -1,0 +1,8 @@
+
+            cost                              playstyle
+spell       persistent resource (mana/gold)   control
+attack      free                              aggro
+action      resource / turn (action)          miracle/combo
+
+traps      (activates conditionally on opponents turn)
+equiptment (persistent one-time bonus)

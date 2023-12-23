@@ -1,0 +1,5 @@
+fac
+    : float |- float 
+    = (1 | snd * fac (snd - 1)) dist (x == 1, x);
+
+fac 30

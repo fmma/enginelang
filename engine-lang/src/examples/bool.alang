@@ -1,0 +1,25 @@
+true
+    : a |- a + b
+    = inl;
+
+false
+    : a |- b + a
+    = inr;
+
+and
+    : (c + b) * (a + b) |- a + b
+    = (snd | inr fst) dist;
+
+or
+    : (a + c) * (a + b) |- a + b
+    = (inl fst | snd) dist;
+
+not
+    : a + b |- b + a
+    = inr | inl;
+
+ifthenelse
+    : (a + b) * c * c |- c
+    = (fst snd | snd snd) dist;
+
+ifthenelse (and (or (false, true), false), 101, 999)

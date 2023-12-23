@@ -1,0 +1,14 @@
+class Pair a b {
+    x: a;
+    y: b;
+
+    swap = Pair {
+        x = y;
+        y = x;
+    }
+
+    map f g = Pair {
+        x = f x;
+        y = g y;
+    }
+}

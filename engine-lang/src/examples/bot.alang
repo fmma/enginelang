@@ -1,0 +1,29 @@
+bot
+    : a |- a
+    = (bot | bot) inl;
+
+first 
+    : a * b * c |- a
+    = fst;
+
+second 
+    : a * b * c |- b
+    = fst snd;
+
+third
+    : a * b * c |- c
+    = snd snd;
+
+firstq
+    : (a * b) * c |- a
+    = fst fst;
+
+secondq
+    : (a * b) * c |- b
+    = snd fst;
+
+thirdq
+    : (a * b) * c |- c
+    = snd;
+
+30

@@ -1,0 +1,32 @@
+index
+    : [a] * float |- a + 1
+    = head drop;
+
+of
+    : a |- [a]
+    = [snd] str (& 1, x);
+
+concat
+    : [[a]] |- [a]
+    = <append> ([], x);
+
+filter
+    : [a + b] |- [a]
+    = concat [of | []];
+
+or: 
+    (a + b) * (a + b) |- a + b
+    =
+    (inl fst | snd) dist;
+
+not
+    : a + b |- b + a
+    = inr | inl;
+
+rep
+    : a * float |- [a]
+    = [snd] str (& snd, fst);
+
+
+
+rep (x, 10) <fst + snd> (0, x) [snd] filter [not dist (or (x == 3, x == 5), x)] & 10

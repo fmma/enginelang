@@ -1,0 +1,81 @@
+nested_iotas : a |- [[float]]
+    =
+    [
+        str (&, _);
+        [+]
+    ] & 100
+    =
+
+----------------
+a |- dup : a * a
+
+  a |- f : c    b |- g : d
+-----------------------------
+  a * b |- {f, g} : c * d
+
+  a |- f : b   a |- f : c
+  ----------------------
+    a |- (f, g) : b * c
+
+-----------------
+a + a |- join : a
+
+  a |- f : c    b |- g : d
+-----------------------------
+  a + b |- {f | g} : c + d
+
+  a |- f : c   b |- f : c
+  ------------------------
+    a + b |- (f | g) : c
+
+
+{f, g} =def= (f fst, g snd)
+(f, g) =def= {f, g} dup
+
+
+quicksort : [float] -> [float]
+    # < 2,                                  : (float + float) [float]
+    case inl,                               : float [float]
+        snd                                 : [float]
+    case inr,                               : float [float]
+        str (, head) snd                    : [float float]
+        [<], [==], [>]                      : [float + float] [float + float] [float + float]
+        filter x0, filter x1, filter x2     : [float] [float] [float]
+        quicksort x0 ++ x1 ++ quicksort x2  : [float]
+
+    dup
+    <# < 2, id>
+    [snd, f]
+where
+    f =
+    str (id, head) snd
+    [<], [==], [>]
+    quicksort filter x0 ++ filter x1 ++ quicksort filter x2
+
+and : (a + b) (a + c) |- a + c
+    case inl,    : a (a + b)
+        inl fst  : a + c
+    case inr,    : b (a + b)
+        snd      : a + b
+
+overlap
+    : [Date from * Date to] |- 1 + 1
+    =
+    sort;
+
+concatica
+
+type Sum a = [a]
+Type Product a = [a]
+data Type = Type (Sum (Product BaseType))
+data BaseType = Tfloat | Tint | Tlist Type
+
+
+word3 word2 word1
+Word6[
+    word4b word4a,
+    word5b word5a
+    word5c
+]
+word9 word8 word7
+word10

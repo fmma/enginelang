@@ -1,0 +1,10 @@
+or: 
+    (a + b) * (a + b) |- a + b
+    =
+    (inl fst | snd) dist;
+
+fib
+    : float |- float
+    = (snd | fib (snd - 1) + fib (snd - 2)) dist (or (x == 0, x == 1), x);
+
+fib 10

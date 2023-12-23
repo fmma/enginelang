@@ -1,0 +1,9 @@
+foo
+    : float |- float
+    = (1 | bar (snd - 1)) dist (x == 0, x);
+
+bar
+    : float |- float
+    = (0 | foo (snd - 1)) dist (x == 0, x);
+
+foo 10

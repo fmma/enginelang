@@ -1,0 +1,15 @@
+Example a
+
+toString: string;
+
+Example1 {
+    in baz: string;
+
+    toString = baz;
+}
+
+Example2 {
+    in slam: int;
+
+    toString = slam.toString;
+}
